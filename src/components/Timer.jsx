@@ -13,7 +13,7 @@ const Timer = () => {
     });
 
     function calculateTimeLeft() {
-        const endDate = new Date('2024-04-01T00:00:00');
+        const endDate = new Date('2025-04-01T00:00:00');
         const now = new Date();
         const difference = endDate - now;
 
