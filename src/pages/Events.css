@@ -1,0 +1,287 @@
+/* General Page Styling */
+.events-page {
+  background-color: #020202;
+  padding-top: 2rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Title Styling */
+.title-container {
+  margin-top: 20px;
+}
+
+/* Swiper Styles */
+.swiper {
+  width: 80%;
+  height: 100%;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.2; /* Faded effect */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Ensuring Full Image Visibility */
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* Event Details Below Image */
+.event-details {
+  margin-top: 10px;
+}
+
+.event-details h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background: linear-gradient(45deg, #410221, #057e76);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  border: 2px solid #ffffff;
+  color: #fff;
+  transform: scale(1.05);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Full Image Visibility in Modal */
+.modal-image {
+  width: 45%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  border: 5px solid #ff0080c9; /* Neon border */
+  transition: transform 0.3s ease;
+}
+
+.modal-image:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Details */
+.modal-details {
+  margin-left: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.modal-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #cbe008, #09c541f8);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.modal-description {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #f1f1f1;
+}
+
+.modal-details p {
+  margin: 10px 0;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.modal-details strong {
+  color: #ff007f;
+}
+
+/* Modal Buttons */
+.modal-button {
+  background: #5a72059c;
+  color: #fff;
+  padding: 12px 24px;
+  margin-right: 1rem;
+  border: 2px solid #00ffef;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 15px;
+}
+
+.modal-button:hover {
+  background: #026d66;
+  transform: translateY(-2px);
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  background: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #ff007f;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🔹 Responsive Fixes */
+@media screen and (max-width: 1024px) {
+  .modal-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .modal-image {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .modal-details {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .modal-title {
+    font-size: 1.8rem;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .events-page {
+    height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .swiper {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    width: 200px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-image {
+    width: 70%;
+  }
+
+  .modal-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .swiper-slide {
+    width: 180px;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-description {
+    font-size: 0.9rem;
+  }
+
+  .modal-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .modal-close {
+    font-size: 1.8rem;
+  }
+}

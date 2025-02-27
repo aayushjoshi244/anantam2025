@@ -1,0 +1,295 @@
+/* Global Reset and Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none; /* Added for Safari and iOS support */
+}
+
+html {
+    font-size: 14px;
+    word-spacing: 1px;
+    -ms-text-size-adjust: 100%; /* For IE and older Edge */
+    -webkit-text-size-adjust: 100%; /* For Safari and iOS */
+    text-size-adjust: 100%; /* Standard property for modern browsers */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1;
+}
+
+html[lang|=en-us] body {
+    font-family: "en inpin", var(--mi18n-font-css) !important;
+}
+
+[mi18n-lang=en-us],
+[mi18n-lang=id-id],
+[mi18n-lang=fr-fr],
+[mi18n-lang=vi-vn],
+[mi18n-lang=pt-pt],
+[mi18n-lang=es-es],
+[mi18n-lang=tr-tr],
+[mi18n-lang=it-it] {
+    font-family: Tahoma, Helvetica, Arial, sans-serif !important;
+    --mi18n-font-css: meSubFont, Tahoma, Helvetica, Arial, sans-serif;
+}
+
+/* Root Variables */
+:root {
+    --global-spacing-1: 4px;
+    --global-spacing-2: 8px;
+    --global-spacing-3: 12px;
+    --global-spacing-4: 16px;
+    --global-spacing-5: 20px;
+    --global-spacing-6: 24px;
+    --global-spacing-7: 28px;
+    --global-spacing-8: 32px;
+    --global-spacing-9: 36px;
+    --global-spacing-10: 40px;
+    --global-spacing-11: 48px;
+    --global-spacing-12: 64px;
+    --global-spacing-13: 80px;
+
+    --global-radius-1: 6px;
+    --global-radius-2: 12px;
+    --global-radius-3: 16px;
+    --global-radius-4: 20px;
+    --global-radius-5: 28px;
+    --global-radius-6: 40px;
+    --global-radius-7: 48px;
+
+    --global-text-title: var(--global-color-grey-9);
+    --global-text-body: var(--global-color-grey-8);
+    --global-text-secondary: var(--global-color-grey-7);
+    --global-text-tertiary: var(--global-color-grey-6);
+    --global-text-disabled: var(--global-color-grey-5);
+    --global-text-warning: var(--global-color-orange-7);
+    --global-text-success: var(--global-color-green-7);
+    --global-text-error: var(--brand-color-error);
+
+    --global-icon-fill-regular: var(--global-color-grey-5);
+    --global-icon-fill-secondary: var(--global-color-grey-8);
+}
+
+:root,
+:root[theme-mode=light] {
+    --global-color-coolgrey-0: #e6ebff;
+    --global-color-coolgrey-1: #d7dff9;
+    --global-color-coolgrey-2: #c7d1f0;
+    --global-color-pink-0: #ffdbf9;
+    --global-color-pink-1: #ffbdf1;
+    --global-color-pink-2: #ff9ee5;
+    --global-color-cyan-0: #c2fffd;
+    --global-color-cyan-1: #a4fdff;
+    --global-color-cyan-2: #85f7ff;
+    --global-color-green-0: #f2fdfa;
+    --global-color-green-1: #e5fbf3;
+    --global-color-green-2: #caf6e6;
+    --global-color-green-3: #b0f2d8;
+    --global-color-green-4: #96eec8;
+    --global-color-green-5: #7beab6;
+    --global-color-green-6: #4eda99;
+    --global-color-green-7: #2cc98a;
+    --global-color-green-8: #2db47e;
+    --global-color-green-9: #2d9f71;
+    --global-color-green-10: #2b826b;
+    --global-color-red-0: #fef2f0;
+    --global-color-red-1: #fee4e1;
+    --global-color-red-2: #fcceca;
+    --global-color-red-3: #fbb8b1;
+    --global-color-red-4: #faa199;
+    --global-color-red-5: #f88b81;
+    --global-color-red-6: #f6675a;
+    --global-color-red-7: #ea473e;
+    --global-color-red-8: #da322f;
+    --global-color-red-9: #c72329;
+    --global-color-red-10: #a8242d;
+    --global-color-purple-0: #cac7ff;
+    --global-color-purple-1: #b1a9ff;
+    --global-color-purple-2: #9b8aff;
+    --global-color-orange-0: #fffcf0;
+    --global-color-orange-1: #fff7e0;
+    --global-color-orange-2: #ffefc7;
+    --global-color-orange-3: #ffe5ad;
+    --global-color-orange-4: #ffda94;
+    --global-color-orange-5: #ffcc7a;
+    --global-color-orange-6: #ffb752;
+    --global-color-orange-7: #f49a34;
+    --global-color-orange-8: #e68123;
+    --global-color-orange-9: #cd6a1d;
+    --global-color-orange-10: #ad551f;
+    --global-color-basic-white: #fff;
+    --global-color-basic-black: #000;
+    --global-color-primary-0: #f0f6ff;
+    --global-color-primary-1: #e0edff;
+    --global-color-primary-2: #c7deff;
+}
+
+:root[theme-mode=light][brand=nap] {
+    --brand-color-hover: #ddbf21;
+    --brand-color-enabled: #d9b808;
+    --brand-color-pressed: #ceaf08;
+    --brand-button-filled-enabled-container: #212122;
+    --brand-button-filled-enabled-element: #fff;
+    --brand-icon: var(--brand-color-enabled);
+    --brand-button-filled-hover-container: #353536;
+    --brand-color-error: #f55b31;
+    --brand-button-filled-hover-element: #fff;
+    --brand-button-filled-pressed-container: #ffde00;
+    --brand-button-filled-pressed-element: #000;
+    --brand-button-filled-disabled-container: var(--global-color-grey-3);
+    --brand-button-filled-disabled-element: var(--global-color-grey-5);
+    --brand-radius-container: 24px;
+    --brand-padding-input: 20px;
+    --brand-button-outlined-enabled-border: var(--global-color-grey-3);
+    --brand-button-outlined-enabled-element: var(--global-color-grey-8);
+    --brand-button-outlined-hover-border: var(--brand-color-hover);
+    --brand-button-outlined-hover-element: var(--brand-color-hover);
+    --brand-button-outlined-pressed-border: var(--brand-color-pressed);
+    --brand-button-ghost-hover-element: var(--brand-color-hover);
+    --brand-button-ghost-enabled-element: var(--brand-color-enabled);
+    --brand-button-ghost-pressed-element: var(--brand-color-pressed);
+    --brand-button-outlined-pressed-element: var(--brand-color-pressed);
+    --brand-button-ghost-disabled-element: var(--global-color-grey-5);
+    --brand-button-outlined-disabled-border: var(--global-color-grey-2);
+    --brand-button-outlined-disabled-element: var(--global-color-grey-5);
+}
+
+/* Section Character Styles */
+.section-character {
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+    padding-top: 1.4rem;
+}
+
+.fill-black-right,
+.fill-black {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.fill-black-bar {
+    width: 100%;
+    height: 100%;
+}
+
+.home-character {
+    position: relative;
+    padding: 20px;
+}
+
+.section-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-nav-label,
+.section-nav-en,
+.section-nav-num {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.home-character__anim {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.en-name {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.home-character__main {
+    position: relative;
+}
+
+.home-character__main-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.home-character__main-nav {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.home-character__nav-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.home-character__nav-item img {
+    width: 100%;
+    height: auto;
+}
+
+.home-character__nav-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.home-character__main-swiper {
+    position: relative;
+}
+
+.home-character__list-item {
+    position: relative;
+}
+
+.home-character__role img,
+.home-character__shade img {
+    width: 100%;
+    height: auto;
+}
+
+.home-character__info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.home-character__camp,
+.home-character__name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.more-btn {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Additional Styles from Inspect */
+section {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+style attribute {
+    visibility: visible;
+    font-size: 56.25px;
+}
