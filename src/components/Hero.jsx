@@ -59,19 +59,19 @@ const Hero = () => {
           onLoadedData={handleVideoLoad}
         />
 
-        <div className="absolute left-0 top-0 z-40 size-full">
+        <div className="absolute left-0 top-0 z-40 size-full ">
           <div className="dok">
             <Timer /> {/* Place the Timer component here */}
           </div>
-          <div className="doc mt-24 px-5 sm:px-10">
-            <p className="mb-5 max-w-104 font-robert-regular text-blue-100 font-bold font-large">
+          <div className="doc mt-24 px-5 sm:px-10 ml-40">
+            <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
               Booting Up its Second Version <br /> Nexus Symposium
             </p>
             <Button
               id="watch-trailer"
               title="Register"
               leftIcon={<TiLocationArrow />}
-              containerClass="bg-yellow-300 flex-center gap-1 ml-40" // Added ml-4 for left margin
+              containerClass="bg-yellow-300 flex-center gap-1 " // Added ml-4 for left margin
             />
           </div>
         </div>
