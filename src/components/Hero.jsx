@@ -59,7 +59,7 @@ const Hero = () => {
           onLoadedData={handleVideoLoad}
         />
 
-        <div className="absolute left-0 top-0 z-40 size-full ">
+        <div className="absolute left-5 bottom-10 z-40 size-full ">
           <div className="dok">
             <Timer /> {/* Place the Timer component here */}
           </div>
@@ -76,10 +76,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-        <b>BKBIET</b>
-      </h1>
     </div>
   );
 };

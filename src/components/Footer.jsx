@@ -11,7 +11,7 @@ const socialLinks = [
 const Footer = ({ isProblemStatement }) => {
   return (
     <footer
-      className={`w-screen text-black sm:py-4 pt-8 pb-3 ${
+      className={`w-screen text-black sm:py-4 pt-4 pb-3 mt-0 ${
         isProblemStatement ? "bg-gold-300" : ""
       }`}
       style={{

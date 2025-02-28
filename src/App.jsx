@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import NavBar from "./components/Navbar";
+import { useRef } from "react";
+import NavBar from "./components/Navbat";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -16,23 +17,36 @@ import 'swiper/swiper-bundle.css';
 function App() {
   const location = useLocation();
 
+  // Define refs for each section
+  const scrollRefs = {
+    home: useRef(null),
+    about: useRef(null),
+    timeline: useRef(null),
+    problems: useRef(null),
+    prizes: useRef(null),
+    judge: useRef(null),
+    faq: useRef(null),
+  };
+
   // Routes where the footer should not appear
   const noFooterRoutes = ["/sponsor", "/events", "/gallery", "/problem-statement", "/developers"];
 
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
-      <NavBar />
+      {/* Pass scrollRefs to Navbar */}
+      <NavBar scrollRefs={scrollRefs} />
+
       <Routes>
-        {/* Home Route */}
+        {/* Home Route with Section Refs */}
         <Route
           path="/"
           element={
             <>
-              <Hero />
-              <About />
-              <Features />
-              <Story />
-              <Contact />
+              <section ref={scrollRefs.home}><Hero /></section>
+              <section ref={scrollRefs.about}><About /></section>
+              <section ref={scrollRefs.timeline}><Features /></section>
+              <section ref={scrollRefs.problems}><Story /></section>
+              <section ref={scrollRefs.prizes}><Contact /></section>
             </>
           }
         />
@@ -42,6 +56,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/problem-statement" element={<ProblemStatement />} />
       </Routes>
+
       {!noFooterRoutes.includes(location.pathname) && <Footer />}
     </main>
   );
