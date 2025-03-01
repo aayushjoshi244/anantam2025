@@ -11,6 +11,12 @@ const Innovators = () => {
 
   // Extended list of innovators
   const innovators = [
+     {
+      name: "Aayush Joshi",
+      role: "Machine Learning Engineer",
+      avatar: "/img/gallery-3.webp",
+      socialLink: "https://linkedin.com/in/emilydavis",
+    },
     {
       name: "Harshvardhan Singh Shekhawat",
       role: "Full-Stack Developer",
@@ -22,12 +28,6 @@ const Innovators = () => {
       role: "Software Engineer",
       avatar: "/img/gallery-3.webp",
       socialLink: "https://instagram.com/sumit_banns",
-    },
-    {
-      name: "Karan Choudhary",
-      role: "Full-Stack Developer",
-      avatar: "/img/karan.jpeg",
-      socialLink: "https://www.instagram.com/karanchoudhary5772/",
     },
     {
       name: "Rishi",
@@ -47,13 +47,6 @@ const Innovators = () => {
       avatar: "/img/gallery-2.webp",
       socialLink: "https://twitter.com/alicejohnson",
     },
-    {
-      name: "Aayush Joshi",
-      role: "Machine Learning Engineer",
-      avatar: "/img/gallery-3.webp",
-      socialLink: "https://linkedin.com/in/emilydavis",
-    },
-    
     {
       name: "Chetna",
       role: "Blockchain Developer",
