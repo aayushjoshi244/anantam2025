@@ -11,26 +11,18 @@ const navItems = [
   { name: "Events", path: "/events" },
   { name: "Problem Statement", path: "/problem-statement" },
   { name: "Developers", path: "/developers" },
-  {
-    name: "Gallery",
-    path: "/gallery",
-  },
+  { name: "Gallery", path: "/gallery" },
   { name: "Become Sponsor", path: "/sponsor" },
 ];
 
-const NavBar = () => {
+const Header = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const audioElementRef = useRef(null);
   const navContainerRef = useRef(null);
 
-  const toggleAudio = () => {
-    setIsAudioPlaying((prev) => !prev);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  const toggleAudio = () => setIsAudioPlaying((prev) => !prev);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   useEffect(() => {
     const audio = audioElementRef.current;
@@ -63,7 +55,7 @@ const NavBar = () => {
   return (
     <div
       ref={navContainerRef}
-      className="fixed inset-x-0 top-0 z-50 h-16 border-none transition-all duration-700 sm:inset-x-0"
+      className="fixed inset-x-0 top-0 z-50 h-16 border-none transition-all duration-700"
       style={{
         backgroundImage: "url('/img/navbar.svg')",
         backgroundSize: "cover",
@@ -71,15 +63,11 @@ const NavBar = () => {
         backgroundPosition: "center",
       }}
     >
-      <header className="absolute top-1/2 w-full -translate-y-1/2">
+      <header className="absolute top-0 w-full">
         <nav className="flex items-center justify-between p-4 md:px-8">
           <div className="flex items-center gap-7">
             <Link to="/">
-              <img
-                src="/img/logo1.png"
-                alt="logo"
-                className="w-10 cursor-pointer"
-              />
+              <img src="/img/logo1.png" alt="logo" className="w-10 cursor-pointer" />
             </Link>
 
             <Button
@@ -117,34 +105,15 @@ const NavBar = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="md:hidden ml-4 text-2xl text-white"
-              onClick={toggleMenu}
-              aria-label="Toggle Menu"
-            >
+            <button className="md:hidden ml-4 text-2xl text-white" onClick={toggleMenu} aria-label="Toggle Menu">
               {isMenuOpen ? <HiX /> : <HiMenuAlt4 />}
             </button>
 
             {/* Audio Toggle */}
-            <button
-              onClick={toggleAudio}
-              className="ml-4 flex items-center space-x-0.5"
-              aria-label="Toggle audio"
-            >
-              <audio
-                ref={audioElementRef}
-                className="hidden"
-                src="/audio/Bg-music.mp3"
-                loop
-              />
+            <button onClick={toggleAudio} className="ml-4 flex items-center space-x-0.5" aria-label="Toggle audio">
+              <audio ref={audioElementRef} className="hidden" src="/audio/Bg-music.mp3" loop />
               {[1, 2, 3, 4].map((bar) => (
-                <div
-                  key={bar}
-                  className={clsx("indicator-line", { active: isAudioPlaying })}
-                  style={{
-                    animationDelay: `${bar * 0.1}s`,
-                  }}
-                />
+                <div key={bar} className={clsx("indicator-line", { active: isAudioPlaying })} style={{ animationDelay: `${bar * 0.1}s` }} />
               ))}
             </button>
           </div>
@@ -157,23 +126,13 @@ const NavBar = () => {
               {navItems.map((item, index) =>
                 item.target ? (
                   <li key={index}>
-                    <a
-                      href={item.path}
-                      target={item.target}
-                      rel="noopener noreferrer"
-                      className="nav-hover-btn"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                    <a href={item.path} target={item.target} rel="noopener noreferrer" className="nav-hover-btn" onClick={() => setIsMenuOpen(false)}>
                       {item.name}
                     </a>
                   </li>
                 ) : (
                   <li key={index}>
-                    <Link
-                      to={item.path}
-                      className="nav-hover-btn"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                    <Link to={item.path} className="nav-hover-btn" onClick={() => setIsMenuOpen(false)}>
                       {item.name}
                     </Link>
                   </li>
@@ -187,4 +146,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Header;

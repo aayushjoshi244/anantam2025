@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useRef } from "react";
-import NavBar from "./components/Navbat";
+import Header from "./components/Header";
+import NavBat from "./components/Navbat";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -24,40 +25,42 @@ function App() {
     timeline: useRef(null),
     problems: useRef(null),
     prizes: useRef(null),
-    judge: useRef(null),
-    faq: useRef(null),
   };
 
-  // Routes where the footer should not appear
   const noFooterRoutes = ["/sponsor", "/events", "/gallery", "/problem-statement", "/developers"];
 
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
-      {/* Pass scrollRefs to Navbar */}
-      <NavBar scrollRefs={scrollRefs} />
+      <Header />
+      <NavBat scrollRefs={scrollRefs} className="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-90 shadow-lg" />
 
-      <Routes>
-        {/* Home Route with Section Refs */}
-        <Route
-          path="/"
-          element={
-            <>
-              <section ref={scrollRefs.home}><Hero /></section>
-              <section ref={scrollRefs.about}><About /></section>
-              <section ref={scrollRefs.timeline}><Features /></section>
-              <section ref={scrollRefs.problems}><Story /></section>
-              <section ref={scrollRefs.prizes}><Contact /></section>
-            </>
-          }
-        />
-        <Route path="/sponsor" element={<Sponsor />} />
-        <Route path="/developers" element={<Developers />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/problem-statement" element={<ProblemStatement />} />
-      </Routes>
+      <div className="pt-[80px]"> 
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <section ref={scrollRefs.home} className="w-full"><Hero /></section>
+                <section ref={scrollRefs.about} className="w-full"><About /></section>
+                <section ref={scrollRefs.timeline} className="w-full"><Features /></section>
+                <section ref={scrollRefs.problems} className="w-full"><Story /></section>
+                <section ref={scrollRefs.prizes} className="w-full"><Contact /></section>
+              </>
+            }
+          />
+          <Route path="/sponsor" element={<Sponsor />} />
+          <Route path="/developers" element={<Developers />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/problem-statement" element={<ProblemStatement />} />
+        </Routes>
+      </div>
 
-      {!noFooterRoutes.includes(location.pathname) && <Footer />}
+      {!noFooterRoutes.includes(location.pathname) && (
+        <div className="w-full">
+          <Footer />
+        </div>
+      )}
     </main>
   );
 }

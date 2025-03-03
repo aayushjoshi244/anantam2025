@@ -3,7 +3,7 @@ import { RiMoneyRupeeCircleFill, RiTeamFill } from "react-icons/ri";
 import { FaGripLines, FaPenToSquare, FaQuestion, FaRegClock } from "react-icons/fa6";
 import { HiHome } from "react-icons/hi";
 
-const Navbar = ({ scrollRefs }) => {
+const Navbat = ({ scrollRefs }) => {
   const [selectedSection, setSelectedSection] = useState("#home");
 
   useEffect(() => {
@@ -103,4 +103,4 @@ const useMediaQuery = (query) => {
   return matches;
 };
 
-export default Navbar;
+export default Navbat;

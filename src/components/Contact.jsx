@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedTitle from "./AnimatedTitle";
 import Button from "./Button";
-import "./Contact.css"
+import "./Contact.css";
 
 const ImageClipBox = ({ src, clipClass }) => (
   <motion.div
@@ -43,7 +43,7 @@ const Contact = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.5, ease: "easeOut" }}
     >
-      <div className="docr rounded-lg bg-black py-24 text-blue-50 sm:overflow-hidden h-[600px] w-[1500px]">
+      <div className="docr relative rounded-lg bg-black py-24 text-blue-50 sm:overflow-hidden h-[600px] w-[1500px]">
         {/* Floating Images */}
         <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-20 lg:w-96">
           <ImageClipBox
@@ -67,6 +67,7 @@ const Contact = () => {
           />
         </div>
 
+        {/* Contact Section */}
         <div className="flex flex-col items-center text-center z-10 relative">
           <p className="mb-10 font-general text-[15px] uppercase">
             Join Anantam bkbiet
@@ -84,8 +85,11 @@ const Contact = () => {
             >
               <Button
                 title="Contact Us"
-                containerClass="cursor-pointer z-20 relative"
-                onClick={() => setIsModalOpen(true)}
+                containerClass="cursor-pointer z-50 relative"
+                onClick={() => {
+                  console.log("Button Clicked!");
+                  setIsModalOpen(true);
+                }}
               />
             </motion.div>
           </motion.div>
@@ -96,26 +100,21 @@ const Contact = () => {
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
-            className="doc fixed inset-0 flex items-center justify-center z-50 mb-[100px]"
+            className="fixed inset-0 flex items-center justify-center z-50 mb-[100px]"
             style={{ backgroundColor: "#f2be2265" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-gradient-to-b from-black to-black p-10 rounded-lg w-[95%] max-w-lg text-white relative shadow-xl min-h-[550px]"
-              style={{ backgroundColor: "#000000" }}
+              className="bg-black p-10 rounded-lg w-[95%] max-w-lg text-white relative shadow-xl min-h-[550px]"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
               {/* Background Logo */}
-              <img
-                src="/img/logo1.png" // Replace with the actual path of your logo
-                alt="Company Logo"
-                className="dp"
-              />
+              <img src="/img/logo1.png" alt="Company Logo" className="dp" />
 
               <button
                 onClick={() => setIsModalOpen(false)}
@@ -131,7 +130,7 @@ const Contact = () => {
                 Contact Us
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6 relative">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex flex-col">
                   <label
                     className="mb-2 text-lg font-medium"
@@ -145,7 +144,7 @@ const Contact = () => {
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="p-4 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="dk1 p-4 rounded-md bg-gray-600/90 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
                     required
                   />
                 </div>
